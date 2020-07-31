@@ -34,8 +34,8 @@ class BBCodeParser
             'content' => '$2'
         ],
         'color' => [
-            'pattern' => '/\[color\=(#[A-f0-9]{6}|#[A-f0-9]{3})\](.*?)\[\/color\]/s',
-            'replace' => '<font color="$1">$2</font>',
+            'pattern' => '/\[color\=(rgb\(\d{1,3}, ?\d{1,3}, ?\d{1,3}\)|#[A-f0-9]{6}|#[A-f0-9]{3})\](.*?)\[\/color\]/s',
+            'replace' => '<span style="color:$1;">$2</span>',
             'content' => '$2'
         ],
         'center' => [
@@ -69,7 +69,7 @@ class BBCodeParser
             'content' => '$1'
         ],
         'namedlink' => [
-            'pattern' => '/\[url\=(.*?)\](.*?)\[\/url\]/s',
+            'pattern' => '/\[url\=\'(.*?)\'\](.*?)\[\/url\]|\[url\=(.*?)\](.*?)\[\/url\]/s',
             'replace' => '<a href="$1">$2</a>',
             'content' => '$2'
         ],
@@ -105,7 +105,7 @@ class BBCodeParser
         ],
         'youtube' => [
             'pattern' => '/\[youtube\](.*?)\[\/youtube\]/s',
-            'replace' => '<iframe width="560" height="315" src="//www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>',
+            'replace' => '<iframe width="560" height="315" src="//www.youtube.com/embed/$1?modestbranding=1&showinfo=0&rel=0&color=white" frameborder="0" allowfullscreen></iframe>',
             'content' => '$1'
         ],
         'linebreak' => [
